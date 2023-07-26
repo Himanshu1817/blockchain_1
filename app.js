@@ -20,7 +20,7 @@ app.use(bodyParser.json());
 //   };
   
 
-  
+  let blockchain=[];
   // Function to verify the integrity of the blockchain
   function verifyBlockchain() {
     for (let i = 1; i < blockchain.length; i++) {
