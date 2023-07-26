@@ -78,6 +78,11 @@ app.post('/block', async (req, res) => {
 
 // GET /block - To get an existing block from the chain
 app.get('/block', (req, res) => {
+
+  const data2 =  fs.readFileSync('./blockchain.json', 'utf8');
+  const dataJSON = JSON.parse(data2);
+  let blockchain = [...dataJSON];
+  
   const blockNo = req.query.blockNo;
   if (!blockNo || blockNo < 1 || blockNo > blockchain.length) {
     return res.status(400).json({ error: "Invalid block number." });
@@ -88,6 +93,11 @@ app.get('/block', (req, res) => {
 
 // GET /block/stats - To get info about the chain
 app.get('/block/stats', (req, res) => {
+
+  const data2 =  fs.readFileSync('./blockchain.json', 'utf8');
+  const dataJSON = JSON.parse(data2);
+  let blockchain = [...dataJSON];
+  
   const latestBlockHash = blockchain[blockchain.length - 1].hash;
   res.json({ blockCount: blockchain.length, latestBlockHash });
 });
