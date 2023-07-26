@@ -12,15 +12,15 @@ const port = 3000; //port number to listen the server
 app.use(bodyParser.json());
 
 
-// const genesisBlock = {
-//     blockNo: "1",
-//     data: "",
-//     hash: "0x0000000000",
-//     nounce: "0",
-//   };
+ const genesisBlock = {
+     blockNo: "1",
+     data: "",
+     hash: "0x0000000000",
+     nounce: "0",
+   };
   
 
-  let blockchain=[];
+  let blockchain=[genesisBlock];
   // Function to verify the integrity of the blockchain
   function verifyBlockchain() {
     for (let i = 1; i < blockchain.length; i++) {
